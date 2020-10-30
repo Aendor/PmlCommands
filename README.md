@@ -241,5 +241,8 @@ Q [attribute name]\[Distributed attribute name][1] OF ENGITE /118-LPAI-2132
 **Show all pml files in use on a project:**
 show !!pmlbrowser
 
+**Set DB file name to be the same as the db number:**
+Fino 0
+
 ### Additional Info
 *Import AutoCad file in Visio; only for AutoCAD version 2007*
