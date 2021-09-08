@@ -244,5 +244,8 @@ show !!pmlbrowser
 **Set DB file name to be the same as the db number:**
 Fino 0
 
+**Convert to units and nearest bore:**
+!!CE.:SPECOREF.CATREF.PARAM[1].ConvertUnits('INCH').NearestBore()
+
 ### Additional Info
 *Import AutoCad file in Visio; only for AutoCAD version 2007*
