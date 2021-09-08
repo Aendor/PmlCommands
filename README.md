@@ -239,13 +239,19 @@ Q [attribute name]\[Distributed attribute name][1] OF ENGITE /118-LPAI-2132
 ```
 
 **Show all pml files in use on a project:**
+```sh
 show !!pmlbrowser
+```
 
 **Set DB file name to be the same as the db number:**
+```sh
 Fino 0
+```
 
 **Convert to units and nearest bore:**
+```sh
 !!CE.:SPECOREF.CATREF.PARAM[1].ConvertUnits('INCH').NearestBore()
+```
 
 ### Additional Info
 *Import AutoCad file in Visio; only for AutoCAD version 2007*
