@@ -105,7 +105,7 @@ enddo
 ```sh
 SPECONMODE
 
-ALPHA LOG /C:\TEMP/spec.txt
+ALPHA LOG /C:\temp\spec.txt
   OUT NEW /AAAA
 ALPHA LOG END
 
