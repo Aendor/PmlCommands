@@ -1,0 +1,17 @@
+!name = NAME
+$P $!name
+
+do !item values XRLIST
+    
+    if (!item.Acttype EQ ':InstrumentELEC') then
+
+        !fullname = !item.FullName
+        $P $!name
+
+        $!item
+        DELETE :InstrumentELEC
+
+        $P Deleted $!fullname
+    endif
+    
+enddo
