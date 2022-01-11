@@ -253,5 +253,10 @@ Fino 0
 !!CE.:SPECOREF.CATREF.PARAM[1].ConvertUnits('INCH').NearestBore()
 ```
 
+**Find all distributed attributes:**
+```sh
+XRLIST
+```
+
 ### Additional Info
 *Import AutoCad file in Visio; only for AutoCAD version 2007*
