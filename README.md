@@ -223,9 +223,7 @@ UNNAME
 
 **Get autoname result:**
 ```sh
-!dbref = REF
-!name = !!namOpt.nameString(!dbref, '', true, true)
-$P $!name
+q var !!namOpt.nameString(CE, '', true, true)
 ```
 **Using the KEYCOPY command:**
 ```sh
