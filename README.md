@@ -256,5 +256,10 @@ Fino 0
 XRLIST
 ```
 
+**Find project trigram:**
+```sh
+var !test PROJ CODE
+```
+
 ### Additional Info
 *Import AutoCad file in Visio; only for AutoCAD version 2007*
