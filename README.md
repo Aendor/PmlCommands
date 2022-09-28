@@ -258,7 +258,7 @@ XRLIST
 
 **Find project trigram:**
 ```sh
-var !test PROJ CODE
+var !trigram PROJ CODE
 ```
 
 ### Additional Info
