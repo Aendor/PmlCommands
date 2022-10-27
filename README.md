@@ -261,5 +261,13 @@ XRLIST
 var !trigram PROJ CODE
 ```
 
+**Copy object from one DB to the other. Run this within Admininstration module.**
+```sh
+FROM DB SCHESCH/DIA_PEDWPRTS000106_S01
+TO DB SCHESCH/DIA_PEDWPRTS000106_S02
+RCFCOPY /SCG_PEDWPRTS000106_S02
+RECONFIGURE
+```
+
 ### Additional Info
 *Import AutoCad file in Visio; only for AutoCAD version 2007*
