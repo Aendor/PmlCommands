@@ -239,6 +239,7 @@ Q [attribute name]\[Distributed attribute name][1] OF ENGITE /118-LPAI-2132
 **Show all pml files in use on a project:**
 ```sh
 show !!pmlbrowser
+show !!pmlforms
 ```
 
 **Set DB file name to be the same as the db number:**
