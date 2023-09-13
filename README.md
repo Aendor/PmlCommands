@@ -270,5 +270,10 @@ RCFCOPY /SCG_PEDWPRTS000106_S02
 RECONFIGURE
 ```
 
+**Unlock all members of CE:**
+```sh
+UNLOCK ALL
+```
+
 ### Additional Info
 *Import AutoCad file in Visio; only for AutoCAD version 2007*
