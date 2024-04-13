@@ -275,5 +275,24 @@ RECONFIGURE
 UNLOCK ALL
 ```
 
+**Reconfig a Database:**
+```sh
+!dbName = 'INST/BGL'
+!dbNo = 50996
+
+FROM DB $!dbName
+TO FILE /c:\temp\a /c:\temp\b
+RCFCOPY ALL
+RECONFIGURE
+
+DELETE DB $!dbName
+
+CREATE DB $!dbName SCHE DBNO $!dbNo
+
+FROM FILE /c:\temp\a /c:\temp\b
+TO DB $!dbName
+RECONFIG SAMEREF
+```
+
 ### Additional Info
 *Import AutoCad file in Visio; only for AutoCAD version 2007*
