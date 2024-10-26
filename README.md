@@ -1,298 +1,56 @@
-# PML Function Examples
+# AVEVA PML2 Comprehensive Guide
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+Welcome to the **AVEVA PML2 Comprehensive Guide**! This guide serves as a structured reference for learning and using PML2 (Programmable Macro Language) within AVEVA, from beginner basics to advanced coding techniques.
 
-This repository shows examples of PML Functions
+## Table of Contents
 
-  - Sample PML1 functions
-  - Sample PML2 functions
+1. [Introduction to PML2](#introduction-to-pml2)
+2. [Variables and Data Types](Variables_and_Data_Types.md)
+3. [Control Flow](Control_Flow.md)
+4. [Functions and Procedures](Functions_and_Procedures.md)
+5. [Collections and Objects](Collections_and_Objects.md)
+6. [File Handling](File_Handling.md)
+7. [Advanced Examples and Patterns](Advanced_Examples.md)
 
-**Startup:**
-```sh
-[path]\diagrams.bat XXX SYSTEM/[password] /[MDB] DIAGRAMS
-[path]\engineering.bat XXX SYSTEM/[password] /[MDB] TAGS
-[path]\diagrams.bat TTY XXX SYSTEM/XXXXXX /ALL %1%
+## Introduction to PML2
 
-[path]\Diagrams14.1.1\mon.exe" tty -macro="[path]\publishAllDiagramsToAVEVANET.pmlmac" PROD DIAGRAMS init "[path]\Diagrams14.1.1\diagrams.init"
-"[path]\Engineering15.3.0\mon.exe" tty -macro="[path]\extractDBViewsToAVEVANET.pmlmac" PROD ENGINEERING init "[path]\Engineering15.3.0\engineering.init"
+AVEVA’s **Programmable Macro Language (PML2)** is a flexible scripting language used to automate processes, customize interfaces, and create custom functions in AVEVA applications.
 
-```
+### Key Features
 
-**Database modification information:**
-```sh
-LASTMOD
-USERMOD
-```
+- **Data Types**: Supports common data types such as `STRING`, `REAL`, `BOOLEAN`, and `ARRAY`.
+- **Control Structures**: Provides loops (`DO`, `DO VALUES`) and conditional statements (`IF`, `ELSE`) for flexible programming.
+- **Custom Objects**: Define custom data structures with attributes and methods.
+- **File Handling**: Read and write text files for data export and logging.
+- **Advanced Operations**: Includes commands for environment queries, database modifications, and Excel data imports.
 
-**List user directory:**
-```sh
-evar pdmsuser
-```
+### How to Use This Guide
 
-**To see all commands on the commandline when you running a process:**
-```sh
-$R6
-```
+Each section of this guide is contained within its own Markdown file for focused reference:
 
-**Query Enviroment Variables:**
-```sh
-q evar 'AVEVA_DESIGN_WORK'
-var !a evar pdmsuser
-q !a
-```
+- **[Variables and Data Types](Variables_and_Data_Types.md)**: Learn how to declare and use variables, including local and global scope, and data types.
+- **[Control Flow](Control_Flow.md)**: Explore conditionals and loops to control the execution flow of your PML2 scripts.
+- **[Functions and Procedures](Functions_and_Procedures.md)**: Understand how to create reusable functions and procedures, including return values.
+- **[Collections and Objects](Collections_and_Objects.md)**: Dive into managing collections of objects and defining custom object types with attributes and methods.
+- **[File Handling](File_Handling.md)**: See how to handle files in PML2, including reading, writing, and error handling.
+- **[Advanced Examples and Patterns](Advanced_Examples.md)**: Browse practical examples, from exporting data to CSV to using environment variables and managing databases.
 
-**Modify a standard report:**
-```sh
-CALLIBR XREPSEL MODIFY
-```
+### Getting Started
 
-**Create a standard report:**
-```sh
-CALLIBR XREPDEF
-```
+To get started, you can browse each section for targeted learning or follow the order in the table of contents. Each section contains explanations, tables of commands, and code examples to help you quickly understand and apply PML2 concepts.
 
-**Set Decimals:**
-```sh
-preci 2 deci
-```
+> **Note:** The examples provided are compatible with AVEVA applications using PML2. Ensure your AVEVA environment is set up correctly to run these commands and scripts.
 
-**Clock:**
-```sh
-CLOCK DATE
-CLOCK TIME
-```
+---
 
-**Change the database primary location:**
-```sh
-CHANGE TEST/TESTDESI PRIMARY AT HUB
-```
+Happy coding with PML2! If you have any questions or find something unclear, feel free to raise an issue or submit a pull request with improvements.
 
-**Change the team name:**
-```sh
-CN DB TEAMNAME/TESTDESI NEWNAME/TESTDESI
-```
+---
 
-**Create an ENGWLD:**
-```sh
-NEW ENGWLD /ENGI_DATA_PROC DB ENGIPROC/ENGI_DATA_PROC
-NEW XPIWLD /PROC_XPI DB ENGIPROC/ENGI_DATA_PROC
-```
+## Contributing
 
-**Show the Include form:**
-```sh
-SHOW _CDCINCLUDE
-```
+Contributions are welcome! If you have additional PML2 examples or improvements for this guide, please submit a pull request.
 
-**Write to text file:**
-```sh
-var variable COLLECT ALL element FOR array
+## License
 
-!file = object File('filename')
-!result = ARRAY()
-
-do element values variable
-    !ref = element.DBREF()
-    !name = !ref.NAME
-    
-    !output = !name
-    !result.Append(!output)
-enddo
-
-!file.WriteFile('WRITE', !result)
-```
-
-**Using Specon Mode in Paragon:**
-```sh
-SPECONMODE
-
-ALPHA LOG /C:\temp\spec.txt
-  OUT NEW /AAAA
-ALPHA LOG END
-
-EXIT
-```
-**Change Specification Name:**
-```sh
-CHANGE 'NEW SPECIFICATION' TO 'OLD SPECIFICATION'
-```
-
-**Create a DB LISTING:**
-```sh
-call !!displayOutput('Datal')
-```
-
-**Move item across databases:**
-```sh
-INCLUDE ACROSSDB /ITEM
-```
-
-**Backtrack with removing previous sessions:**
-```sh
-BACKTRACK [Team name]/[DB name] TO SESSION 2
-```
-
-**Delete all members:**
-```sh
-DELETE SCGROU MEM
-```
-
-**Message Box:**
-```sh
-!!Alert.Message('HELLO')
-```
-
-**PML Definition:**
-```sh
-!!PMLDefinition('SBMCloneObjects')
-```
-
-**UNDO TRANSACTION:**
-```sh
-PREVOWNER [Team Name]/[Database Name]
-```
-
-**Empty USER directory:**
-```sh
-C:\Users\Public\DOCUME~1\AVEVA\USERDATA
-C:\Users\[User Name]\AppData\Local\AVEVA
-```
-
-**Show old members menu:**
-```sh
-SHOW _CDCMEMBER FREE
-```
-
-**Show all LINK database references:**
-```sh
-GOTO CMPLNK
-```
-
-**Change DB location:**
-```sh
-CHANGE [Team name]/[DB name] PRIMARY AT HUB
-```
-
-**Turn PML events off:**
-```sh
-!!PMLEVENTS = 'OFF'
-```
-
-**Read data from .xls file:**
-```sh
-–Open Forms\Hide
-show !!spreadsheetimport
-hide !!spreadsheetimport
-!!spreadsheetImport.setDataHandler(object EQUILOADER())
-!!spreadSheetImport.filename.val = 'c:\PipeImport.xls' $* Excel PATH
-!!spreadSheetImport.loadData()
-–Find first column names
-!array = ARRAY()
-do !rowVals values !!spreadSheetImport.dataGrid.getrows()
-!row =''
-do !rowVal indice !rowVals
-!sep = ''
-if(!rowVal.eq(1).not())then
-!sep = ' '
-endif
-!row = !row + !sep + !rowVals[!rowVal]
-enddo
-!array.append(!row)
-enddo
-q var !array
-
-Output:
-[1] '100-B-1 PIPE 1'
-[2] '100-B-2 PIPE 2'
-```
-
-**Show naming rules in Engineering:**
-```sh
-show !!namoptedit
-```
-
-**Autoname CE:**
-```sh
-!!autoNameCe(true)
-```
-
-**AutoRename:**
-```sh
-UNNAME
-!!autoNameCe(true)
-```
-
-**Get autoname result:**
-```sh
-q var !!namOpt.nameString(CE, '', true, true)
-```
-**Using the KEYCOPY command:**
-```sh
-KEYCOPY [uda name]
-```
-
-**Using the "OF" keyword:**
-```sh
-Q DESC OF [TYPE] /ITEM
-Q [attribute name]\[Distributed attribute name][1] OF ENGITE /118-LPAI-2132 
-```
-
-**Show all pml files in use on a project:**
-```sh
-show !!pmlbrowser
-show !!pmlforms
-```
-
-**Set DB file name to be the same as the db number:**
-```sh
-Fino 0
-```
-
-**Convert to units and nearest bore:**
-```sh
-!!CE.:SPECOREF.CATREF.PARAM[1].ConvertUnits('INCH').NearestBore()
-```
-
-**Find all distributed attributes:**
-```sh
-XRLIST
-```
-
-**Find project trigram:**
-```sh
-var !trigram PROJ CODE
-```
-
-**Copy object from one DB to the other. Run this within Admininstration module.**
-```sh
-FROM DB SCHESCH/DIA_PEDWPRTS000106_S01
-TO DB SCHESCH/DIA_PEDWPRTS000106_S02
-RCFCOPY /SCG_PEDWPRTS000106_S02
-RECONFIGURE
-```
-
-**Unlock all members of CE:**
-```sh
-UNLOCK ALL
-```
-
-**Reconfig a Database:**
-```sh
-!dbName = 'INST/BGL'
-!dbNo = 50996
-
-FROM DB $!dbName
-TO FILE /c:\temp\a /c:\temp\b
-RCFCOPY ALL
-RECONFIGURE
-
-DELETE DB $!dbName
-
-CREATE DB $!dbName SCHE DBNO $!dbNo
-
-FROM FILE /c:\temp\a /c:\temp\b
-TO DB $!dbName
-RECONFIG SAMEREF
-```
-
-### Additional Info
-*Import AutoCad file in Visio; only for AutoCAD version 2007*
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
